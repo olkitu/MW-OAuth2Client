@@ -150,6 +150,12 @@ class SpecialOAuth2Client extends SpecialPage {
 			throw new MWException('Could not create user with username:' . $username);
 			die();
 		}
+		
+		if (!$email) {
+			throw new MWException('Could not get user email:' . $email);
+			die();
+		}
+		
 		$user->setRealName($username);
 		$user->setEmail($email);
 		$user->load();
